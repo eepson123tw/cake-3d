@@ -36,7 +36,16 @@ const Emitter = forwardRef((props, forwardRef) => {
       mute: sound
     })
   )
-  useEffect(() => void video.play(), [video, sound])
+  useEffect(() => {
+    sound && video.play()
+    sound &&
+      window.addEventListener('touchstart', () => {
+        document.getElementById('audio').muted = false
+        document.getElementById('audio').play()
+      })
+    return () => video.play()
+  }, [video, sound])
+
   return (
     <mesh ref={forwardRef} position={[0, 0, -15]} {...props}>
       <planeGeometry args={[16, 10]} />
