@@ -1,9 +1,13 @@
+// @ts-nocheck
 import './style.css'
+
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Cake from './Cake.jsx'
 import Screen from './Screen.jsx'
 import { useControls } from 'leva'
+import CanvasLoader from './Loader'
+import React, { Suspense, useRef, useState } from 'react'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
@@ -16,7 +20,9 @@ root.render(
       position: [2, 9, 5]
     }}
   >
-    <Cake />
-    <Screen />
+    <Suspense fallback={<CanvasLoader />}>
+      <Cake />
+      <Screen />
+    </Suspense>
   </Canvas>
 )

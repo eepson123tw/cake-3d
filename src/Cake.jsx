@@ -14,13 +14,13 @@ import { useControls } from 'leva'
 const obstacleMaterial = new THREE.MeshStandardMaterial({ color: '#FFCCEE' })
 export default function Cake(props) {
   const { nodes, materials } = useGLTF('cake.glb')
-  const { name, color } = useControls('Music', {
+  const { name, bgColor } = useControls('Music', {
     name: { value: 'Keri' },
-    color: { value: '#000000' }
+    bgColor: { value: '#000000' }
   })
   return (
     <>
-      <color attach='background' args={[`${color}`]} />
+      <color attach='background' args={[`${bgColor}`]} />
       <Center right position={[-3, 0.5, 0]}>
         <OrbitControls makeDefault />
         <Environment preset='sunset'></Environment>
@@ -80,7 +80,6 @@ export default function Cake(props) {
             font=''
             fontSize={0.5}
             letterSpacing={-0.05}
-            color={'#ff7519'}
             position={[1.5, 3, 0.75]}
             rotation={[-0.8, 0, 0]}
             color='white'
