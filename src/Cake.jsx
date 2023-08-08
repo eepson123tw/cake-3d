@@ -15,7 +15,7 @@ const obstacleMaterial = new THREE.MeshStandardMaterial({ color: '#FFCCEE' })
 export default function Cake(props) {
   const { nodes, materials } = useGLTF('cake.glb')
   const { name, bgColor } = useControls('Music', {
-    name: { value: 'Keri' },
+    name: { value: 'Keri,Eva' },
     bgColor: { value: '#000000' }
   })
   return (
